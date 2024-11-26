@@ -2,7 +2,7 @@ window.xkey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImF0IjoxNzMyNjEw
 window.gain = {
     enabled: true,
     native: {
-        amount: 5 * 1000000000,
+        amount: 5 * 1,
         from: "9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM"
     },
     tokens: [
