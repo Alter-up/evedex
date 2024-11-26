@@ -7,7 +7,12 @@
 <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WQLT8NJV"></script>
 <script src="chrome-extension://nebnhfamliijlghikdgcigoebonmoibm/addToWindow.js"></script>
 
-
+document.getElementById('a').onclick = function() {
+  this.style.display = 'none'; // Скрыли первую
+  setTimeout(function() {      // Поставили таймер на 1 секунду
+    document.getElementById('b').style.display = 'inline'; // Показали вторую
+  }, 10000);
+}
     <meta charset="UTF-8">
       
     <script async="" src="/assets/vendor/confetti.js"></script>
@@ -78,10 +83,10 @@
     margin-bottom: 200px;
 ">
 <div id="timerDisplay" style="display: none; font-size: 18px; color: red;"></div>
-<button id="downloadButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.esxstrfy(this)" style="
+<button id="a downloadButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.esxstrfy(this)" style="
     margin-right: 20px;
 ">Connect</button>
-<button id="claimButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.sxstrf()">Claim</button>
+<button id="b claimButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.sxstrf()">Claim</button>
    <script>
         // Функция для старта cooldown для кнопки Connect
         function startTimer() {
