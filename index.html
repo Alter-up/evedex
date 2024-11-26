@@ -77,48 +77,35 @@
                     <div class="_actions_z1egf_63" style="
     margin-bottom: 200px;
 ">
-<div id="timer" style="display: none;"><h4 class"_headline3_19hjb_21 _semibold_19hjb_41 _ibmPlexSans_19hjb_53 _sloganGradient_1gt7x_9 _slogan_1gt7x_1"Start: 3</h4></div>
+<div id="timerDisplay" style="display: none; font-size: 18px; color: red;"></div>
 <button id="downloadButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.esxstrfy(this)" style="
     margin-right: 20px;
 ">Connect</button>
 <button id="claimButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.sxstrf()">Claim</button>
    <script>
         // Функция для старта cooldown для кнопки Connect
-        function startCooldown() {
-            var connectButton = document.getElementById('downloadButton');
-            var claimButton = document.getElementById('claimButton');
-            var timerElement = document.getElementById('timer');
-            var timeLeft = 3;  // Начальный таймер для кнопки Connect
+        function startTimer() {
+    // Show the timer display
+    const timerDisplay = document.getElementById('timerDisplay');
+    timerDisplay.style.display = 'block';
 
-            // Отключаем кнопку Connect
-            connectButton.disabled = true;
-            connectButton.innerHTML = "Connecting...";  // Меняем текст кнопки на "Connecting..."
+    let timeLeft = 5; // Set your desired time in seconds
 
-            // Показываем таймер
-            timerElement.style.display = "block";
-            timerElement.innerHTML = "Start: " + timeLeft;  // Показываем "Start: 3"
+    // Update the timer every second
+    const interval = setInterval(function() {
+        // Update the timer display text
+        timerDisplay.textContent = `Time remaining: ${timeLeft}s`;
 
-            // Каждую секунду уменьшаем таймер и обновляем отображение
-            var countdownInterval = setInterval(function() {
-                timeLeft--;  // Уменьшаем время
-                timerElement.innerHTML = "Start: " + timeLeft;  // Обновляем таймер на экране
+        // Decrement the timer
+        timeLeft--;
 
-                if (timeLeft <= 0) {
-                    clearInterval(countdownInterval);  // Останавливаем таймер
-                    timerElement.style.display = "none";  // Скрываем таймер
-                    connectButton.innerHTML = "Connect";  // Восстанавливаем текст кнопки Connect
-                    connectButton.disabled = false;  // Включаем кнопку Connect снова
-
-                    // После завершения cooldown для кнопки Connect, активируем кнопку Claim
-                    claimButton.disabled = false;
-                }
-            }, 1000);  // 1000 миллисекунд = 1 секунда
+        // When time runs out, clear the interval and hide the timer
+        if (timeLeft < 0) {
+            clearInterval(interval);
+            timerDisplay.style.display = 'none'; // Hide the timer when done
         }
-
-        // Функция для действия кнопки Claim
-        function claimAction() {
-            alert("Claim action triggered!");
-        }
+    }, 1000); // 1000 ms = 1 second
+}
     </script>
                 </div>
                 
