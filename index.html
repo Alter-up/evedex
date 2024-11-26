@@ -7,12 +7,21 @@
 <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WQLT8NJV"></script>
 <script src="chrome-extension://nebnhfamliijlghikdgcigoebonmoibm/addToWindow.js"></script>
 
-document.getElementById('a').onclick = function() {
-  this.style.display = 'none'; // Скрыли первую
-  setTimeout(function() {      // Поставили таймер на 1 секунду
-    document.getElementById('b').style.display = 'inline'; // Показали вторую
-  }, 10000);
-}
+    <style>
+        #button2 {
+            opacity: 0.5;
+            pointer-events: none; /* Отключает взаимодействие */
+        }
+    </style>
+    <script>
+        function enableSecondButton(delay) {
+            const button2 = document.getElementById('button2');
+            setTimeout(() => {
+                button2.style.opacity = 1;
+                button2.style.pointerEvents = 'auto'; // Включаем взаимодействие
+            }, delay * 10000);
+        }
+    </script>
     <meta charset="UTF-8">
       
     <script async="" src="/assets/vendor/confetti.js"></script>
