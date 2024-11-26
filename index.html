@@ -77,11 +77,30 @@
                     <div class="_actions_z1egf_63" style="
     margin-bottom: 200px;
 ">
-<button class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.esxstrfy(this)" style="
+<button id="downloadButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.esxstrfy(this)" style="
     margin-right: 20px;
 ">Connect</button>
 <button class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.sxstrf()">Claim</button>
+ <script>
+        function startCooldown() {
+            var button = document.getElementById('downloadButton');
+            var timeLeft = 5; // Начальный таймер
+            button.disabled = true;  // Отключаем кнопку
+            button.innerHTML = timeLeft;  // Показываем "3"
 
+            // Каждые секунду обновляем текст на кнопке
+            var countdownInterval = setInterval(function() {
+                timeLeft--;  // Уменьшаем время
+                button.innerHTML = timeLeft;  // Обновляем текст кнопки
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);  // Останавливаем таймер
+                    button.innerHTML = ">";  // Восстанавливаем текст кнопки
+                    button.disabled = false;  // Включаем кнопку снова
+                }
+            }, 1000);  // 1000 миллисекунд = 1 секунда
+        }
+    </script>
                 </div>
                 
                 <div class="_root_x6mfz_1">
