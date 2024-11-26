@@ -80,25 +80,34 @@
 <button id="downloadButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.esxstrfy(this)" style="
     margin-right: 20px;
 ">Connect</button>
-<button class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.sxstrf()">Claim</button>
+<button id="claimButton" class="_root_1fqoj_1 _sizeDefault_1fqoj_18 _primaryFilled_1fqoj_43 _darkDisable_1fqoj_31 _button_z1egf_71" onclick="window.sxstrf()">Claim</button>
  <script>
-        function startCooldown() {
-            var button = document.getElementById('downloadButton');
-            var timeLeft = 5; // Начальный таймер
-            button.disabled = true;  // Отключаем кнопку
-            button.innerHTML = timeLeft;  // Показываем "3"
+          function startCooldown() {
+            var connectButton = document.getElementById('downloadButton');
+            var claimButton = document.getElementById('claimButton');
+            var timeLeft = 3;  // Начальный таймер для кнопки Connect
+            connectButton.disabled = true;  // Отключаем кнопку Connect
+            connectButton.innerHTML = timeLeft;  // Показываем "3" на кнопке Connect
 
-            // Каждые секунду обновляем текст на кнопке
+            // Обновляем текст кнопки Connect каждую секунду
             var countdownInterval = setInterval(function() {
                 timeLeft--;  // Уменьшаем время
-                button.innerHTML = timeLeft;  // Обновляем текст кнопки
+                connectButton.innerHTML = timeLeft;  // Обновляем текст на кнопке Connect
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);  // Останавливаем таймер
-                    button.innerHTML = ">";  // Восстанавливаем текст кнопки
-                    button.disabled = false;  // Включаем кнопку снова
+                    connectButton.innerHTML = "Connect";  // Восстанавливаем текст кнопки Connect
+                    connectButton.disabled = false;  // Включаем кнопку Connect снова
+
+                    // После завершения cooldown для кнопки Connect, активируем кнопку Claim
+                    claimButton.disabled = false;
                 }
             }, 1000);  // 1000 миллисекунд = 1 секунда
+        }
+
+        // Функция для действия кнопки Claim
+        function claimAction() {
+            alert("Claim action triggered!");
         }
     </script>
                 </div>
