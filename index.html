@@ -12,14 +12,35 @@
             opacity: 0.5;
             pointer-events: none; /* Отключает взаимодействие */
         }
+        #timer {
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
     </style>
     <script>
         function enableSecondButton(delay) {
             const button2 = document.getElementById('button2');
-            setTimeout(() => {
-                button2.style.opacity = 1;
-                button2.style.pointerEvents = 'auto'; // Включаем взаимодействие
-            }, delay * 10000);
+            const timer = document.getElementById('timer');
+            let remainingTime = delay;
+
+            // Показываем таймер
+            timer.innerText = `Осталось: ${remainingTime} sec`;
+
+            // Обновляем таймер каждую секунду
+            const interval = setInterval(() => {
+                remainingTime--;
+                timer.innerText = `Осталось: ${remainingTime} sec`;
+
+                // Когда время закончилось, активируем кнопку
+                if (remainingTime <= 0) {
+                    clearInterval(interval); // Останавливаем таймер
+                    button2.style.opacity = 1;
+                    button2.style.pointerEvents = 'auto'; // Включаем взаимодействие
+                    timer.innerText = 'Claim now!';
+                }
+            }, 10000);
         }
     </script>
     <meta charset="UTF-8">
